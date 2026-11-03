@@ -65,6 +65,7 @@
    },
    "sameAs": [
     "https://pf.kakao.com/_JdYWX",
+    "https://www.instagram.com/eroom_marketing",
     "https://m.idsn.co.kr/news/view/1065602129224578"
    ],
    "contactPoint": [
@@ -1284,6 +1285,13 @@ a.er-badge:hover s{transform:translateX(3px)}
 .er-footer2 .col b{font:700 14px/1 var(--font-body);color:#171719}
 .er-footer2 .col a{font:500 14px/1 var(--font-body);color:rgba(46,47,51,0.72)}
 .er-footer2 .col a:hover{color:#C41E3F}
+.er-social{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.er-social-btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px 0 6px;border-radius:999px;background:#fff;border:1px solid rgba(112,115,124,0.18);font:600 13px/1 var(--font-body);color:#171719;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+.er-social-btn:hover{transform:translateY(-1px);border-color:rgba(112,115,124,0.32);box-shadow:0 6px 16px rgba(23,23,25,0.08)}
+.er-social-btn .ico{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;flex:none}
+.er-social-btn .ico svg{width:17px;height:17px}
+.er-social-btn .ico.kakao{background:#FEE500}
+.er-social-btn .ico.insta{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}
 .er-footer2-biz{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 32px;margin-top:44px;padding-top:28px;border-top:1px solid rgba(112,115,124,0.14);font:500 12.5px/1.5 var(--font-body);color:rgba(46,47,51,0.72)}
 .er-footer2-biz .wide{grid-column:1/-1}
 .er-footer2-biz b{display:inline-block;min-width:92px;font-weight:600;color:rgba(46,47,51,0.88)}
@@ -1462,7 +1470,7 @@ a.er-badge:hover s{transform:translateX(3px)}
 <section aria-labelledby="h-rank"><h2 id="h-rank">무료 플레이스 순위체크</h2><p>카카오톡 &lsquo;이룸마케팅 순위체크&rsquo; 채널에 &lsquo;키워드 / 업체명&rsquo;을 보내면 네이버 플레이스 순위(광고 제외, 300위까지)와 어제·지난주 비교, 14일 추이를 무료로 알려드려요. 예) 강서마케팅 / 이룸마케팅 → <a href="https://pf.kakao.com/_pKRxeX">pf.kakao.com/_pKRxeX</a></p></section>
 <section aria-labelledby="h-cta"><h2 id="h-cta">매출이 오르는 마케팅, 이룸이 설계해드려요.</h2><p>채널 진단부터 예산 배분까지 담당 마케터가 직접 정리해 보여드려요. 전화 <a href="tel:0269589144">02-6958-9144</a> 또는 <a href="https://pf.kakao.com/_JdYWX">카카오톡 채널</a>로 무료 상담을 신청하세요.</p></section>
 </main>
-<footer><address>주식회사 이룸마케팅 · 사업자등록번호 309-86-04187 · 서울특별시 강서구 양천로 547, 1015호(가양동, 마스터밸류) · 전화 <a href="tel:0269589144">02-6958-9144</a> · 카카오톡 <a href="https://pf.kakao.com/_JdYWX">pf.kakao.com/_JdYWX</a></address><p>© 주식회사 이룸마케팅 (eroom). All rights reserved.</p></footer>
+<footer><address>주식회사 이룸마케팅 · 사업자등록번호 309-86-04187 · 서울특별시 강서구 양천로 547, 1015호(가양동, 마스터밸류) · 전화 <a href="tel:0269589144">02-6958-9144</a> · <a href="https://pf.kakao.com/_JdYWX">카카오톡 상담</a> · <a href="https://www.instagram.com/eroom_marketing">인스타그램 @eroom_marketing</a></address><p>© 주식회사 이룸마케팅 (eroom). All rights reserved.</p></footer>
 </div></noscript></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
@@ -3868,7 +3876,10 @@ function App() {
       maxWidth: 260,
       marginTop: 12
     }
-  }, "네이버 · 당근 · 체험단 · 유튜브까지, 데이터로 성장을 이루는 인터넷 종합 마케팅 회사예요.")), /*#__PURE__*/React.createElement("div", {
+  }, "네이버 · 당근 · 체험단 · 유튜브까지, 데이터로 성장을 이루는 인터넷 종합 마케팅 회사예요."), /*#__PURE__*/React.createElement("div", {
+    className: "er-social",
+    dangerouslySetInnerHTML: { __html: "<a class=\"er-social-btn\" href=\"https://pf.kakao.com/_JdYWX\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"이룸마케팅 카카오톡 채널로 상담하기\"><span class=\"ico kakao\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"#3C1E1E\" d=\"M12 3.6C6.7 3.6 2.4 7 2.4 11.2c0 2.7 1.8 5.1 4.5 6.4l-.9 3.4c-.1.3.3.6.6.4l4-2.7c.5.1 1 .1 1.4.1 5.3 0 9.6-3.4 9.6-7.6S17.3 3.6 12 3.6z\"/></svg></span><span>카카오톡 상담</span></a><a class=\"er-social-btn\" href=\"https://pf.kakao.com/_pKRxeX\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"카카오톡 플레이스 순위체크 채널 열기\"><span class=\"ico kakao\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 18.5v-6M12 18.5V6M18 18.5v-9\" fill=\"none\" stroke=\"#3C1E1E\" stroke-width=\"2.8\" stroke-linecap=\"round\"/></svg></span><span>무료 순위체크</span></a><a class=\"er-social-btn\" href=\"https://www.instagram.com/eroom_marketing\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"이룸마케팅 인스타그램 @eroom_marketing\"><span class=\"ico insta\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"4.8\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\"/><circle cx=\"12\" cy=\"12\" r=\"3.7\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\"/><circle cx=\"16.9\" cy=\"7.1\" r=\"1.2\" fill=\"#fff\"/></svg></span><span>인스타그램</span></a>" }
+  })), /*#__PURE__*/React.createElement("div", {
     className: "cols"
   }, /*#__PURE__*/React.createElement("div", {
     className: "col"
@@ -3910,15 +3921,7 @@ function App() {
     className: "er-footer2-biz"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "법인명"), "주식회사 이룸마케팅"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "대표자"), "박성민, 박성우"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "법인등록번호"), "110111-0961200"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "사업자등록번호"), "309-86-04187"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "전화"), /*#__PURE__*/React.createElement("a", {
     href: "tel:0269589144"
-  }, "02-6958-9144")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "카카오톡"), /*#__PURE__*/React.createElement("a", {
-    href: "https://pf.kakao.com/_JdYWX",
-    target: "_blank",
-    rel: "noopener noreferrer"
-  }, "pf.kakao.com/_JdYWX")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "순위체크"), /*#__PURE__*/React.createElement("a", {
-    href: "https://pf.kakao.com/_pKRxeX",
-    target: "_blank",
-    rel: "noopener noreferrer"
-  }, "pf.kakao.com/_pKRxeX")), /*#__PURE__*/React.createElement("div", {
+  }, "02-6958-9144")), /*#__PURE__*/React.createElement("div", {
     className: "wide"
   }, /*#__PURE__*/React.createElement("b", null, "주소"), "서울특별시 강서구 양천로 547, 1015호(가양동, 마스터밸류)")), /*#__PURE__*/React.createElement("div", {
     className: "er-footer2-bottom"
