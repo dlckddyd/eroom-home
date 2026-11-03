@@ -1153,6 +1153,12 @@ a.er-badge:hover s{transform:translateX(3px)}
 .er-form-btn:active{transform:translateY(0)}
 .er-rocket{position:absolute;top:-8px;right:-6px;font-size:26px;line-height:1;opacity:0;transform:translate(-6px,14px) rotate(-20deg);transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1),opacity 0.2s;pointer-events:none}
 .er-form-btn:hover .er-rocket{opacity:1;transform:translate(4px,-16px) rotate(8deg)}
+.er-form-wrap{max-width:500px;margin:0 auto}
+.er-form-note{margin:10px 0 0;text-align:center;font:500 12.5px/1.5 var(--font-body);color:rgba(46,47,51,0.6)}
+.er-form-note.err{color:#C41E3F}
+.er-form-note a{color:inherit;text-decoration:underline}
+.er-form-back{border:0;background:none;padding:0;font:inherit;color:#C41E3F;text-decoration:underline;cursor:pointer}
+.er-form-btn:disabled{opacity:.6;cursor:default;transform:none}
 .er-form-done{display:flex;align-items:center;justify-content:center;gap:10px;max-width:560px;margin:24px auto 0;background:rgba(0,191,64,0.06);border:1px solid rgba(0,191,64,0.2);border-radius:999px;padding:16px 24px;font:600 14px/1.4 var(--font-body);color:#171719}
 .er-form-done i{width:8px;height:8px;border-radius:50%;background:#00BF40}
 .er-trust{margin-top:16px;font:500 12px/1 var(--font-body);color:rgba(55,56,60,0.5);letter-spacing:0.015em;display:flex;gap:18px;justify-content:center}
@@ -3641,30 +3647,52 @@ function ServiceBlock({
 }
 function ConsultForm() {
   const [text, setText] = useState('');
-  const [done, setDone] = useState(false);
-  const submit = e => {
+  const [phone, setPhone] = useState('');
+  const [step, setStep] = useState(1);
+  const [status, setStatus] = useState('');
+  const phoneRef = useRef(null);
+  const next = e => {
     e.preventDefault();
-    const t = text.trim();
-    if (!t) return;
-    try {
-      const key = 'eroom-consult-requests';
-      const prev = JSON.parse(localStorage.getItem(key) || '[]');
-      prev.push({
-        text: t,
-        at: new Date().toISOString()
-      });
-      localStorage.setItem(key, JSON.stringify(prev));
-    } catch (err) {}
-    setDone(true);
+    if (!text.trim()) return;
+    setStep(2);
+    setTimeout(() => phoneRef.current && phoneRef.current.focus(), 50);
   };
-  if (done) return /*#__PURE__*/React.createElement("div", {
+  const send = async e => {
+    e.preventDefault();
+    const p = phone.trim();
+    if (p.replace(/[^0-9]/g, '').length < 9) { setStatus('invalid'); return; }
+    setStatus('sending');
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/dlckddydd@icloud.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: '[이룸마케팅] 무료 컨설팅 신청 - ' + p,
+          _template: 'table',
+          _captcha: 'false',
+          '연락처': p,
+          '마케팅 고민': text.trim(),
+          '신청 페이지': location.href,
+          '신청 시각': new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
+        })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || String(data.success) === 'false') throw new Error(data.message || 'send failed');
+      setStatus('done');
+    } catch (err) {
+      setStatus('error');
+    }
+  };
+  if (status === 'done') return /*#__PURE__*/React.createElement("div", {
     className: "er-form-done",
     id: "consult"
   }, /*#__PURE__*/React.createElement("i", null), "신청이 접수됐어요. 담당 컨설턴트가 곧 연락드릴게요.");
-  return /*#__PURE__*/React.createElement("form", {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "er-form-wrap"
+  }, step === 1 ? /*#__PURE__*/React.createElement("form", {
     className: "er-form",
     id: "consult",
-    onSubmit: submit
+    onSubmit: next
   }, /*#__PURE__*/React.createElement("input", {
     type: "text",
     value: text,
@@ -3676,7 +3704,32 @@ function ConsultForm() {
     className: "er-form-btn"
   }, "무료 컨설팅 신청하기", /*#__PURE__*/React.createElement("span", {
     className: "er-rocket"
-  }, "🚀")));
+  }, "🚀"))) : /*#__PURE__*/React.createElement("form", {
+    className: "er-form",
+    id: "consult",
+    onSubmit: send
+  }, /*#__PURE__*/React.createElement("input", {
+    ref: phoneRef,
+    type: "tel",
+    inputMode: "tel",
+    autoComplete: "tel",
+    value: phone,
+    onChange: e => { setPhone(e.target.value); if (status === 'invalid') setStatus(''); },
+    placeholder: "연락받을 전화번호 (예: 010-1234-5678)",
+    "aria-label": "연락받을 전화번호"
+  }), /*#__PURE__*/React.createElement("button", {
+    type: "submit",
+    className: "er-form-btn",
+    disabled: status === 'sending'
+  }, status === 'sending' ? '보내는 중…' : '신청 보내기')), step === 2 && /*#__PURE__*/React.createElement("p", {
+    className: 'er-form-note' + (status === 'invalid' || status === 'error' ? ' err' : '')
+  }, status === 'invalid' ? '전화번호를 정확히 입력해주세요.' : status === 'error' ? /*#__PURE__*/React.createElement(React.Fragment, null, "전송에 실패했어요. ", /*#__PURE__*/React.createElement("a", {
+    href: "tel:0269589144"
+  }, "02-6958-9144"), "로 전화 주시면 바로 도와드릴게요.") : /*#__PURE__*/React.createElement(React.Fragment, null, "고민: ", text.trim().slice(0, 40), text.trim().length > 40 ? '…' : '', " · ", /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "er-form-back",
+    onClick: () => { setStep(1); setStatus(''); }
+  }, "수정"))));
 }
 function App() {
   const [chIdx, setChIdx] = useState(0);
