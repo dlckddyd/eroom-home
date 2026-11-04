@@ -62,6 +62,7 @@ a.er-logo,a.er-logo:hover{color:#171719;text-decoration:none}
 @media (max-width:980px){.er-mnav{display:block}.er-gnb-social{margin-left:auto}}
 @media (max-width:560px){.er-mnav>summary{width:34px;height:34px}.er-gnb-in{gap:8px}.er-gnb-social{margin-right:0}.er-gnb.mini .er-gnb-in{padding:0 8px 0 18px}.er-navbtn{padding:9px 13px;font-size:13px}}
 @media (max-width:360px){.er-gnb-social{display:none}}
+.pl-form-msg.err{line-height:1.6}.pl-form-alt{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.pl-form-alt a{display:inline-flex;align-items:center;height:40px;padding:0 14px;border-radius:999px;font:700 13.5px/1 var(--font-body);text-decoration:none;background:#fff;color:#171719;border:1px solid rgba(112,115,124,0.2)}.pl-form-alt a.k{background:#FEE500;border-color:#FEE500;color:#3C1E1E}
 .er-footer2{margin-top:0}.er-footer2 .col a{line-height:1.35}.er-footer2-biz>div{display:flex;gap:8px}.er-footer2-biz b{flex:0 0 96px;min-width:0}
 @media (max-width:560px){.er-footer2{padding-top:52px}.er-footer2 .cols{display:grid;grid-template-columns:1fr 1fr;gap:28px 20px;width:100%}.er-footer2 .col a{white-space:nowrap}}
 
@@ -744,16 +745,23 @@ p,li,dd,dt{text-wrap:pretty}
     if(phone.replace(/[^0-9]/g,'').length<9){ msg.className='pl-form-msg err'; msg.textContent='전화번호를 정확히 입력해주세요.'; f.phone.focus(); return; }
     btn.disabled=true; btn.textContent='보내는 중…'; msg.className='pl-form-msg'; msg.textContent='';
     try{
-      var res=await fetch(f.dataset.endpoint,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({
+      var ctl=window.AbortController?new AbortController():null, tm=setTimeout(function(){ if(ctl) ctl.abort(); },10000);
+      var res=await fetch(f.dataset.endpoint,{method:'POST',signal:ctl?ctl.signal:undefined,headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({
         _subject:'[이룸마케팅] '+f.dataset.subject+' - '+phone, _template:'table', _captcha:'false',
         '업체명 / 플레이스 링크':f.biz.value.trim(), '연락처':phone, '문의 내용':f.memo.value.trim(),
         '신청 페이지':location.href, '신청 시각':new Date().toLocaleString('ko-KR',{timeZone:'Asia/Seoul'})})});
+      clearTimeout(tm);
       var data=await res.json().catch(function(){return {};});
       if(!res.ok || String(data.success)==='false') throw new Error('fail');
       f.innerHTML='<div class="er-form-done" style="margin:0"><i></i>신청이 접수됐어요. 담당 마케터가 1~2영업일 안에 연락드릴게요.</div>';
     }catch(err){
-      btn.disabled=false; btn.textContent='무료 블로그 진단 받기';
-      msg.className='pl-form-msg err'; msg.innerHTML='전송에 실패했어요. <a href="tel:0269589144">02-6958-9144</a>로 전화 주시면 바로 도와드릴게요.';
+      // 접수 서버가 안 될 때: 쓴 내용을 복사해 두고 카카오톡·전화로 바로 연결
+      btn.disabled=false; btn.textContent='다시 보내기';
+      var memo='[이룸마케팅 상담 신청]\n업체: '+f.biz.value.trim()+'\n연락처: '+phone+'\n문의: '+f.memo.value.trim();
+      msg.className='pl-form-msg err';
+      msg.innerHTML='지금 접수 서버가 잠시 불안정해요.<br>아래 버튼을 누르면 쓰신 내용이 복사돼요. 카카오톡 대화창에 붙여넣어 보내주세요.'
+        +'<span class="pl-form-alt"><a class="k" href="https://pf.kakao.com/_JdYWX/chat" target="_blank" rel="noopener noreferrer">카카오톡으로 보내기</a><a href="tel:0269589144">전화하기 02-6958-9144</a></span>';
+      msg.querySelector('a.k').addEventListener('click',function(){ try{ navigator.clipboard.writeText(memo).catch(function(){}); }catch(_){} });
     }
   }); }
 })();

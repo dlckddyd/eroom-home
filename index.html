@@ -3717,8 +3717,11 @@ function ConsultForm() {
     if (p.replace(/[^0-9]/g, '').length < 9) { setStatus('invalid'); return; }
     setStatus('sending');
     try {
+      const ctl = window.AbortController ? new AbortController() : null;
+      const tm = setTimeout(() => ctl && ctl.abort(), 10000);
       const res = await fetch('https://formsubmit.co/ajax/dlckddydd@icloud.com', {
         method: 'POST',
+        signal: ctl ? ctl.signal : undefined,
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           _subject: '[이룸마케팅] 무료 컨설팅 신청 - ' + p,
@@ -3730,6 +3733,7 @@ function ConsultForm() {
           '신청 시각': new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
         })
       });
+      clearTimeout(tm);
       const data = await res.json().catch(() => ({}));
       if (!res.ok || String(data.success) === 'false') throw new Error(data.message || 'send failed');
       setStatus('done');
@@ -3775,11 +3779,14 @@ function ConsultForm() {
     type: "submit",
     className: "er-form-btn",
     disabled: status === 'sending'
-  }, status === 'sending' ? '보내는 중…' : '신청 보내기')), step === 2 && /*#__PURE__*/React.createElement("p", {
+  }, status === 'sending' ? '보내는 중…' : status === 'error' ? '다시 보내기' : '신청 보내기')), step === 2 && /*#__PURE__*/React.createElement("p", {
     className: 'er-form-note' + (status === 'invalid' || status === 'error' ? ' err' : '')
-  }, status === 'invalid' ? '전화번호를 정확히 입력해주세요.' : status === 'error' ? /*#__PURE__*/React.createElement(React.Fragment, null, "전송에 실패했어요. ", /*#__PURE__*/React.createElement("a", {
+  }, status === 'invalid' ? '전화번호를 정확히 입력해주세요.' : status === 'error' ? /*#__PURE__*/React.createElement(React.Fragment, null, "접수 서버가 잠시 불안정해요. ", /*#__PURE__*/React.createElement("a", {
+    href: "https://pf.kakao.com/_JdYWX/chat", target: "_blank", rel: "noopener noreferrer",
+    onClick: () => { try { navigator.clipboard.writeText('[이룸마케팅 무료 컨설팅 신청]\n연락처: ' + phone.trim() + '\n고민: ' + text.trim()).catch(() => {}); } catch (_) {} }
+  }, "카카오톡으로 보내기(내용 자동 복사)"), " 또는 ", /*#__PURE__*/React.createElement("a", {
     href: "tel:0269589144"
-  }, "02-6958-9144"), "로 전화 주시면 바로 도와드릴게요.") : /*#__PURE__*/React.createElement(React.Fragment, null, "고민: ", text.trim().slice(0, 40), text.trim().length > 40 ? '…' : '', " · ", /*#__PURE__*/React.createElement("button", {
+  }, "02-6958-9144"), "로 연락 주세요.") : /*#__PURE__*/React.createElement(React.Fragment, null, "고민: ", text.trim().slice(0, 40), text.trim().length > 40 ? '…' : '', " · ", /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "er-form-back",
     onClick: () => { setStep(1); setStatus(''); }
