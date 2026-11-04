@@ -200,14 +200,14 @@ h1,h2,h3{text-wrap:balance}p,li{text-wrap:pretty}
 .lb-tabs span{padding:8px 11px;border-radius:999px;background:#F3F4F7;color:var(--muted)}.lb-tabs span.on{background:var(--ink);color:#fff}
 .lb-list{position:relative;height:calc(6 * 74px)}
 .lb-row{position:absolute;left:0;right:0;height:66px;display:flex;align-items:center;gap:12px;padding:0 12px;border-radius:16px;background:#fff;border:1px solid var(--line);transition:top .9s cubic-bezier(.65,0,.25,1),box-shadow .3s,background .3s}
-.lb-row .th{flex:none;width:44px;height:44px;border-radius:12px;background:url(/assets/img/nail-thumb.webp) center/cover}
+.lb-row .th{flex:none;width:44px;height:44px;border-radius:12px;background-color:#EEE;overflow:hidden}
 .lb-row .nm{flex:1;min-width:0}
 .lb-row .nm b{display:block;font:700 14.5px/1.25 var(--pf);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lb-row .nm small{display:block;margin-top:4px;font:500 11.5px/1 var(--pf);color:var(--muted)}
 .lb-row .nm small em{font-style:normal;color:#F5A524;font-weight:800}
 .lb-row .rk{flex:none;font:800 13px/1 var(--pf);color:var(--muted);width:42px;text-align:right}
 .lb-row.me{background:var(--pinkbg);border-color:#F6B7C3;box-shadow:0 14px 30px rgba(238,93,119,0.22);z-index:2}
-.lb-row.me .th{background:url(/assets/img/nail-thumb.webp) 30% 40%/180% auto;filter:hue-rotate(-25deg) saturate(1.5)}
+.lb-row.me .th{background:url(/assets/img/nail-thumb.webp) 58% 72%/300% auto;filter:hue-rotate(-18deg) saturate(1.8)}
 .lb-row.me .rk{color:#fff;background:var(--pink);border-radius:999px;padding:7px 0;width:56px;text-align:center}
 .lb-row.me .up{position:absolute;right:76px;top:-10px;font:800 11px/1 var(--pf);background:var(--up);color:#fff;padding:5px 8px;border-radius:999px;opacity:0;transition:opacity .3s}
 .lb-row.me.go .up{opacity:1}
@@ -576,7 +576,7 @@ h1,h2,h3{text-wrap:balance}p,li{text-wrap:pretty}
 <div class="lb" aria-hidden="true">
 <div class="lb-search"><i>N</i><span>강남역 젤네일</span><small>지도</small></div>
 <div class="lb-tabs"><span class="on">관련도순</span><span>거리순</span><span>리뷰 많은순</span></div>
-<div class="lb-list" id="lb-list"><div class="lb-row" data-i="0"><span class="th" style="background-position:20% 30%"></span><div class="nm"><b>루미네일 강남점</b><small><em>★ 4.8</em> · 리뷰 1,204 · 120m</small></div><span class="rk">1위</span></div><div class="lb-row" data-i="1"><span class="th" style="background-position:60% 40%"></span><div class="nm"><b>오브온 네일라운지</b><small><em>★ 4.9</em> · 리뷰 842 · 210m</small></div><span class="rk">2위</span></div><div class="lb-row" data-i="2"><span class="th" style="background-position:80% 20%"></span><div class="nm"><b>살롱드 니나</b><small><em>★ 4.7</em> · 리뷰 2,011 · 340m</small></div><span class="rk">3위</span></div><div class="lb-row" data-i="3"><span class="th" style="background-position:40% 70%"></span><div class="nm"><b>젤로우 네일</b><small><em>★ 4.6</em> · 리뷰 503 · 90m</small></div><span class="rk">4위</span></div><div class="lb-row" data-i="4"><span class="th" style="background-position:70% 70%"></span><div class="nm"><b>네일바이 하루</b><small><em>★ 4.8</em> · 리뷰 377 · 410m</small></div><span class="rk">5위</span></div><div class="lb-row me" id="lb-me"><span class="th"></span><div class="nm"><b>이룸 네일 스튜디오</b><small><em>★ 4.9</em> · 리뷰 312 · 150m</small></div><span class="rk" id="lb-rk">38위</span><span class="up" id="lb-up">▲ 순위 상승</span></div></div>
+<div class="lb-list" id="lb-list"><div class="lb-row" data-i="0"><span class="th" style="background:url(/assets/img/nail-thumb.webp) 76% 74%/320% auto"></span><div class="nm"><b>루미네일 강남점</b><small><em>★ 4.8</em> · 리뷰 1,204 · 120m</small></div><span class="rk">1위</span></div><div class="lb-row" data-i="1"><span class="th" style="background:url(/assets/img/svc-blog.webp) 72% 28%/auto 160%"></span><div class="nm"><b>오브온 네일라운지</b><small><em>★ 4.9</em> · 리뷰 842 · 210m</small></div><span class="rk">2위</span></div><div class="lb-row" data-i="2"><span class="th" style="background:url(/assets/img/nail-thumb.webp) 16% 46%/330% auto;filter:saturate(1.4) contrast(1.08)"></span><div class="nm"><b>살롱드 니나</b><small><em>★ 4.7</em> · 리뷰 2,011 · 340m</small></div><span class="rk">3위</span></div><div class="lb-row" data-i="3"><span class="th" style="background:url(/assets/img/svc-review.webp) 62% 26%/auto 150%"></span><div class="nm"><b>젤로우 네일</b><small><em>★ 4.6</em> · 리뷰 503 · 90m</small></div><span class="rk">4위</span></div><div class="lb-row" data-i="4"><span class="th" style="background:url(/assets/img/nail-thumb.webp) center/cover;filter:grayscale(.45) brightness(1.04)"></span><div class="nm"><b>네일바이 하루</b><small><em>★ 4.8</em> · 리뷰 377 · 410m</small></div><span class="rk">5위</span></div><div class="lb-row me" id="lb-me"><span class="th"></span><div class="nm"><b>이룸 네일 스튜디오</b><small><em>★ 4.9</em> · 리뷰 312 · 150m</small></div><span class="rk" id="lb-rk">38위</span><span class="up" id="lb-up">▲ 순위 상승</span></div></div>
 <div class="lb-foot"><span>예시 화면</span><span>12주 동안 <b>38위 → 3위</b></span></div>
 </div>
 </div></header>
@@ -697,7 +697,7 @@ h1,h2,h3{text-wrap:balance}p,li{text-wrap:pretty}
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   // 히어로: 검색 결과에서 우리 가게가 올라온다
   var list=document.getElementById('lb-list'), me=document.getElementById('lb-me'), rk=document.getElementById('lb-rk');
-  var others=[].slice.call(list.querySelectorAll('.lb-row:not(.me)')), H=list.clientHeight/6, steps=[[5, 38], [4, 24], [3, 11], [2, 6], [1, 3]], k=0;
+  var others=[].slice.call(list.querySelectorAll('.lb-row:not(.me)')), H=list.clientHeight/6, steps=[[5, 38], [5, 24], [5, 11], [5, 7], [4, 5], [3, 4], [2, 3]], k=0;
   function place(pos, rank){
     H=list.clientHeight/6; var j=0;
     others.forEach(function(o,i){ if(j===pos) j++; o.style.top=(j*H)+'px'; o.querySelector('.rk').textContent=(j+1)+'위'; j++; });
