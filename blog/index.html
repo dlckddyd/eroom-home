@@ -744,15 +744,23 @@ p,li,dd,dt{text-wrap:pretty}
     var phone=f.phone.value.trim();
     if(phone.replace(/[^0-9]/g,'').length<9){ msg.className='pl-form-msg err'; msg.textContent='전화번호를 정확히 입력해주세요.'; f.phone.focus(); return; }
     btn.disabled=true; btn.textContent='보내는 중…'; msg.className='pl-form-msg'; msg.textContent='';
+    // 접수 서비스 2곳을 차례로 시도 (Web3Forms → FormSubmit). 각 8초 넘으면 다음으로.
+    async function post(url, body){
+      var ctl=window.AbortController?new AbortController():null, tm=setTimeout(function(){ if(ctl) ctl.abort(); },8000);
+      try{
+        var res=await fetch(url,{method:'POST',signal:ctl?ctl.signal:undefined,headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(body)});
+        var data=await res.json().catch(function(){return {};});
+        return res.ok && String(data.success)!=='false';
+      }catch(_){ return false; }finally{ clearTimeout(tm); }
+    }
+    var subject='[이룸마케팅] '+f.dataset.subject+' - '+phone;
+    var fields={'업체명 / 플레이스 링크':f.biz.value.trim(), '연락처':phone, '문의 내용':f.memo.value.trim(),
+      '신청 페이지':location.href, '신청 시각':new Date().toLocaleString('ko-KR',{timeZone:'Asia/Seoul'})};
     try{
-      var ctl=window.AbortController?new AbortController():null, tm=setTimeout(function(){ if(ctl) ctl.abort(); },10000);
-      var res=await fetch(f.dataset.endpoint,{method:'POST',signal:ctl?ctl.signal:undefined,headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({
-        _subject:'[이룸마케팅] '+f.dataset.subject+' - '+phone, _template:'table', _captcha:'false',
-        '업체명 / 플레이스 링크':f.biz.value.trim(), '연락처':phone, '문의 내용':f.memo.value.trim(),
-        '신청 페이지':location.href, '신청 시각':new Date().toLocaleString('ko-KR',{timeZone:'Asia/Seoul'})})});
-      clearTimeout(tm);
-      var data=await res.json().catch(function(){return {};});
-      if(!res.ok || String(data.success)==='false') throw new Error('fail');
+      var ok=false;
+      if('6b66c6ab-cb0b-4ac8-b4e7-74cc747ccdbb'){ ok=await post('https://api.web3forms.com/submit', Object.assign({access_key:'6b66c6ab-cb0b-4ac8-b4e7-74cc747ccdbb', subject:subject, from_name:'이룸마케팅 홈페이지'}, fields)); }
+      if(!ok){ ok=await post(f.dataset.endpoint, Object.assign({_subject:subject, _template:'table', _captcha:'false'}, fields)); }
+      if(!ok) throw new Error('fail');
       f.innerHTML='<div class="er-form-done" style="margin:0"><i></i>신청이 접수됐어요. 담당 마케터가 1~2영업일 안에 연락드릴게요.</div>';
     }catch(err){
       // 접수 서버가 안 될 때: 쓴 내용을 복사해 두고 카카오톡·전화로 바로 연결

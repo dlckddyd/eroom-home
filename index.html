@@ -3717,25 +3717,21 @@ function ConsultForm() {
     if (p.replace(/[^0-9]/g, '').length < 9) { setStatus('invalid'); return; }
     setStatus('sending');
     try {
-      const ctl = window.AbortController ? new AbortController() : null;
-      const tm = setTimeout(() => ctl && ctl.abort(), 10000);
-      const res = await fetch('https://formsubmit.co/ajax/dlckddydd@icloud.com', {
-        method: 'POST',
-        signal: ctl ? ctl.signal : undefined,
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          _subject: '[이룸마케팅] 무료 컨설팅 신청 - ' + p,
-          _template: 'table',
-          _captcha: 'false',
-          '연락처': p,
-          '마케팅 고민': text.trim(),
-          '신청 페이지': location.href,
-          '신청 시각': new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
-        })
-      });
-      clearTimeout(tm);
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok || String(data.success) === 'false') throw new Error(data.message || 'send failed');
+      // 접수 서비스 2곳을 차례로 시도 (Web3Forms → FormSubmit). 각 8초 넘으면 다음으로.
+      const post = async (url, body) => {
+        const ctl = window.AbortController ? new AbortController() : null;
+        const tm = setTimeout(() => ctl && ctl.abort(), 8000);
+        try {
+          const res = await fetch(url, { method: 'POST', signal: ctl ? ctl.signal : undefined, headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(body) });
+          const data = await res.json().catch(() => ({}));
+          return res.ok && String(data.success) !== 'false';
+        } catch (_) { return false; } finally { clearTimeout(tm); }
+      };
+      const subject = '[이룸마케팅] 무료 컨설팅 신청 - ' + p;
+      const fields = { '연락처': p, '마케팅 고민': text.trim(), '신청 페이지': location.href, '신청 시각': new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }) };
+      let ok = await post('https://api.web3forms.com/submit', Object.assign({ access_key: '6b66c6ab-cb0b-4ac8-b4e7-74cc747ccdbb', subject, from_name: '이룸마케팅 홈페이지' }, fields));
+      if (!ok) ok = await post('https://formsubmit.co/ajax/dlckddydd@icloud.com', Object.assign({ _subject: subject, _template: 'table', _captcha: 'false' }, fields));
+      if (!ok) throw new Error('send failed');
       setStatus('done');
     } catch (err) {
       setStatus('error');
