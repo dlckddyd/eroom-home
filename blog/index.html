@@ -329,6 +329,37 @@ p,li,dd,dt{text-wrap:pretty}
 @media (max-width:980px){.pl-hero-vis.wide{height:auto;max-width:560px}.pl-hero-vis.wide .pl-phone{height:auto}}
 @media (max-width:560px){.pl-hero-vis.wide{padding:30px 0 20px}.pl-hero-vis.wide .pl-phone{height:auto}.pl-hero-vis.wide .pl-fc.f1{left:-8px;top:0}.pl-hero-vis.wide .pl-fc.f2{right:-8px}.pl-hero-vis.wide .pl-fc.f3{left:4px;bottom:-6px}}
 
+
+.bk-nb{width:100%;max-width:380px;padding:0;overflow:hidden;position:relative}
+.nb-top{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid #F1F1F3}
+.nb-top b{flex:1;font:800 14px/1 var(--font-body);color:#171719}
+.nb-back{font:400 22px/1 var(--font-body);color:#171719;margin-top:-3px}
+.nb-ico{font:600 15px/1 var(--font-body);color:rgba(46,47,51,0.7)}
+.nb-cover{height:92px;background:url(/assets/img/svc-review.webp) center 28%/cover;position:relative}
+.nb-cover:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(23,23,25,0.45))}
+.nb-cover span{position:absolute;left:14px;bottom:10px;z-index:1;color:#fff;font:700 13px/1.2 var(--font-body);letter-spacing:-.01em}
+.nb-prof{display:flex;align-items:center;gap:10px;padding:12px 14px 0}
+.nb-prof img{width:42px;height:42px;border-radius:50%;object-fit:cover;flex:none}
+.nb-prof div{flex:1;min-width:0}
+.nb-prof b{display:block;font:800 14px/1.2 var(--font-body)}
+.nb-prof small{font:500 11.5px/1.4 var(--font-body);color:rgba(55,56,60,0.6)}
+.nb-prof em{font-style:normal;flex:none;font:700 11.5px/1 var(--font-body);color:#03C75A;border:1px solid #03C75A;border-radius:6px;padding:7px 8px}
+.nb-meta{display:flex;gap:12px;padding:10px 14px 0;font:500 11.5px/1 var(--font-body);color:rgba(55,56,60,0.6)}
+.nb-meta b{color:#171719;font-weight:800}
+.nb-tabs{display:flex;margin-top:12px;border-bottom:1px solid #F1F1F3}
+.nb-tabs span{flex:1;text-align:center;padding:10px 0;font:600 12.5px/1 var(--font-body);color:rgba(55,56,60,0.5)}
+.nb-tabs span.on{color:#171719;font-weight:800;box-shadow:inset 0 -2px 0 #171719}
+.nb-list{list-style:none;margin:0;padding:0 14px 6px}
+.nb-list li{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid #F4F4F6}
+.nb-list li:last-child{border-bottom:0}
+.nb-list li div{flex:1;min-width:0}
+.nb-list b{display:block;font:700 13px/1.35 var(--font-body);color:#171719;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nb-list p{margin:4px 0 0;font:500 11.5px/1.45 var(--font-body);color:rgba(55,56,60,0.6);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.nb-list small{display:block;margin-top:5px;font:500 10.5px/1 var(--font-body);color:rgba(55,56,60,0.45)}
+.nb-list i{flex:none;width:64px;height:64px;border-radius:8px;background:url(/assets/img/svc-blog.webp) 72% 30%/260% auto}
+.nb-list i.p2{background:url(/assets/img/svc-review.webp) 64% 22%/330% auto}
+.nb-list i.p3{background:url(/assets/img/nail-thumb.webp) center/cover}
+.nb-badge{position:absolute;right:12px;top:58px;background:#fff;border-radius:999px;padding:7px 11px;font:800 11.5px/1 var(--font-body);color:#C41E3F;box-shadow:0 8px 20px rgba(23,23,25,0.15)}
 .bk-kw{width:100%;max-width:430px}
 .bk-row{display:grid;grid-template-columns:1.6fr .8fr .6fr .4fr;align-items:center;gap:8px;padding:11px 2px;border-bottom:1px solid #F4F4F6;font:600 13px/1.25 var(--font-body)}
 .bk-row em{font-style:normal;color:rgba(55,56,60,0.6);font-size:12.5px}
@@ -626,7 +657,7 @@ p,li,dd,dt{text-wrap:pretty}
 <div class="pl-chips"><span>검색량·경쟁도</span><span>스마트블록 분석</span><span>상위 글 형식</span><span>월간 캘린더</span></div><div class="pl-meta-mini"><span>받아보시는 것<b>키워드 분석표, 월간 발행 캘린더</b></span><span>기간<b>신청하고 2~3일 안에</b></span></div>
 <details class="pl-more"><summary>자세히 보기</summary><div class="pl-detail"><p>큰 키워드는 경쟁 블로그가 많아서 처음부터 올라가기 어려워요. 그래서 &quot;강남 에스테틱 진정관리 후기&quot;처럼 손님 목적이 뚜렷한 키워드부터 잡고, 네이버 스마트블록 주제에 맞춰 글을 기획해요.</p><p>지금 상위에 어떤 글(후기형⁠·정보형⁠·비교형)이 올라와 있는지도 보고, 형식까지 맞춰요.</p><h4>이런 걸 해드려요</h4><ul><li>키워드 검색량⁠·경쟁도 조사</li><li>스마트블록 주제 분석</li><li>상위 글 형식 분석</li><li>월간 키워드 발행 캘린더</li></ul><h4>이런 사장님께 딱이에요</h4><ul><li>무슨 글을 써야 할지 막막한 사장님</li><li>글은 쓰는데 검색에 안 나오는 사장님</li></ul><h4>자주 물어보세요</h4><dl><dt>키워드는 몇 개나 잡나요?</dt><dd>처음엔 바로 올라갈 수 있는 세부 키워드 10~20개로 시작하고, 노출이 쌓이면 큰 키워드로 넓혀가요.</dd></dl></div></details></div>
 </div></section><section class="pl-blk" id="operate" aria-labelledby="h-operate"><div class="pl-blk-in">
-<div class="pl-vis er-reveal"><div class="mk-card bk-prof"><div class="bk-cover"></div><div class="bk-me"><span class="bk-av">e</span><div><b>오브온 뷰티 저널</b><small>피부관리 · 에스테틱 전문 블로그</small></div></div><div class="bk-cats"><span class="on">피부 고민별 관리</span><span>관리 후기</span><span>홈케어 팁</span><span>공지</span></div><div class="bk-week"><small>이번 주 발행</small><div><span class="on">월</span><span class="">화</span><span class="on">수</span><span class="">목</span><span class="on">금</span><span class="">토</span><span class="">일</span></div></div><div class="bk-stat"><div><small>누적 글</small><b>128</b></div><div><small>이웃</small><b>2,340</b></div><div><small>월 방문</small><b>18.6K</b></div></div></div></div>
+<div class="pl-vis er-reveal"><div class="mk-card bk-nb"><div class="nb-top"><span class="nb-back">‹</span><b>오브온 뷰티 저널</b><span class="nb-ico">⌕</span><span class="nb-ico">☰</span></div><div class="nb-cover"><span>피부가 편안해지는 시간</span></div><div class="nb-prof"><img src="/assets/img/nail-thumb.webp" alt="" loading="lazy"><div><b>오브온 원장</b><small>피부관리 · 에스테틱 · 홈케어</small></div><em>+ 이웃추가</em></div><div class="nb-meta"><span>이웃 <b>2,340</b></span><span>전체 글 <b>128</b></span><span>오늘 방문 <b>612</b></span></div><div class="nb-tabs"><span class="on">블로그</span><span>카테고리</span><span>이웃</span></div><ul class="nb-list"><li><div><b>예민한 피부 진정관리, 3회 받아보니 달라진 점</b><p>붉은기 때문에 고민이셨다면 이 글 끝까지 보세요. 관리 전·후 사진까지…</p><small>11.18 · 공감 32 · 댓글 12</small></div><i class="p1"></i></li><li><div><b>겨울철 각질 홈케어, 원장이 알려주는 3단계</b><p>세안 후 3분 안에 이것만 하세요. 집에서도 쉽게 따라 할 수 있어요…</p><small>11.15 · 공감 27 · 댓글 8</small></div><i class="p2"></i></li><li><div><b>[공지] 12월 예약 오픈 &amp; 첫 방문 이벤트</b><p>12월 예약이 열렸어요. 첫 방문 고객님께는 진정 앰플을 드려요…</p><small>11.13 · 공감 19 · 댓글 15</small></div><i class="p3"></i></li></ul><div class="nb-badge">이번 주 3번째 글 발행 ✓</div></div></div>
 <div class="pl-txt er-reveal"><div class="pl-num">02 · 브랜드 블로그 운영</div><h2 id="h-operate">한 주제를 <em>꾸준히</em> 쓰는 블로그가 믿음을 얻어요</h2><p class="pl-one">우리 브랜드 블로그를 업종에 맞게 세팅하고, 정해진 주기로 꾸준히 올려요.</p>
 <div class="pl-chips"><span>카테고리·프로필 세팅</span><span>주 2~3회 발행</span><span>이미지 제작</span><span>댓글·이웃 관리</span></div><div class="pl-meta-mini"><span>받아보시는 것<b>월간 발행 리포트</b></span><span>기간<b>월 단위 (최소 3개월 추천)</b></span></div>
 <details class="pl-more"><summary>자세히 보기</summary><div class="pl-detail"><p>블로그는 한 주제를 오래, 꾸준히 써야 네이버가 믿을 만한 블로그로 봐줘요. 바쁠 때 멈췄다가 몰아서 쓰면 효과가 확 떨어져요.</p><p>카테고리⁠·프로필⁠·소개글을 업종에 맞게 정리하고, 주 2~3회 일정하게 발행해요. 엉뚱한 일상 글로 주제가 흐려지지 않게 관리해요.</p><h4>이런 걸 해드려요</h4><ul><li>블로그 기본 세팅 (카테고리⁠·프로필⁠·소개)</li><li>주 2~3회 원고 기획⁠·작성⁠·발행</li><li>썸네일⁠·본문 이미지 제작</li><li>댓글⁠·이웃 관리</li></ul><h4>이런 사장님께 딱이에요</h4><ul><li>블로그를 만들어 두고 방치한 사장님</li><li>직접 쓸 시간이 없는 사장님</li></ul><h4>자주 물어보세요</h4><dl><dt>제 블로그로 운영하나요?</dt><dd>네, 사장님 블로그를 직접 키우는 방식이라 쌓인 글과 이웃이 그대로 자산으로 남아요.</dd></dl></div></details></div>
@@ -636,7 +667,7 @@ p,li,dd,dt{text-wrap:pretty}
 <div class="pl-chips"><span>직접 촬영 사진</span><span>두괄식 구성</span><span>AI 브리핑 대응</span><span>자연스러운 키워드</span></div><div class="pl-meta-mini"><span>받아보시는 것<b>발행 원고, 키워드별 노출 확인표</b></span><span>기간<b>원고 1건에 3~5일</b></span></div>
 <details class="pl-more"><summary>자세히 보기</summary><div class="pl-detail"><p>어디서 본 듯한 내용, 키워드만 반복한 글은 검색에서 밀려요. 이룸은 가게⁠·제품을 직접 확인하고 찍은 사진으로 원고를 써요.</p><p>첫 문단에 결론부터 쓰고, 가격⁠·위치⁠·이용 팁처럼 손님이 궁금한 걸 콕 집어 담아요. AI 브리핑이 인용하기 좋게 문단도 짧고 또렷하게 나눠요.</p><h4>이런 걸 해드려요</h4><ul><li>원고 기획⁠·작성</li><li>직접 촬영 사진⁠·이미지 구성</li><li>두괄식 구성⁠·소제목 설계</li><li>키워드 자연스럽게 배치</li></ul><h4>이런 사장님께 딱이에요</h4><ul><li>신메뉴⁠·신제품을 검색에 알리고 싶은 사장님</li><li>자세한 정보 글이 필요한 사장님</li></ul><h4>자주 물어보세요</h4><dl><dt>키워드를 많이 넣으면 잘 올라가나요?</dt><dd>아니요. 너무 반복하면 오히려 낮게 평가될 수 있어서 자연스럽게 넣어요.</dd></dl></div></details></div>
 </div></section><section class="pl-blk" id="reviewers" aria-labelledby="h-reviewers"><div class="pl-blk-in">
-<div class="pl-vis er-reveal"><div class="mk-stack"><div class="bk-bls"><div class="bk-bl"><span class="bk-av">뷰</span><b>뷰티 · 일상</b><small>방문 1.2K</small><em>광고 표시</em></div><div class="bk-bl"><span class="bk-av">리</span><b>리뷰 · 맛집</b><small>방문 3.4K</small><em>광고 표시</em></div><div class="bk-bl"><span class="bk-av">하</span><b>육아 · 뷰티</b><small>방문 860</small><em>광고 표시</em></div></div><div class="mk-card bk-prog"><div class="mk-head"><b>체험단 발행 현황</b><span class="mk-up">12 / 15건</span></div><div class="bk-bar"><i style="width:80%"></i></div><div class="bk-prog-foot"><span>✓ 광고 표시 확인 12건</span><span>검색 노출 9건</span></div></div></div></div>
+<div class="pl-vis er-reveal"><div class="mk-stack"><div class="bk-bls"><div class="bk-bl"><span class="bk-av">뷰</span><b>뷰티 · 일상</b><small>하루 1,200명</small><em>광고 표시</em></div><div class="bk-bl"><span class="bk-av">리</span><b>리뷰 · 맛집</b><small>하루 3,400명</small><em>광고 표시</em></div><div class="bk-bl"><span class="bk-av">하</span><b>육아 · 뷰티</b><small>하루 860명</small><em>광고 표시</em></div></div><div class="mk-card bk-prog"><div class="mk-head"><b>체험단 발행 현황</b><span class="mk-up">12 / 15건</span></div><div class="bk-bar"><i style="width:80%"></i></div><div class="bk-prog-foot"><span>✓ 광고 표시 확인 12건</span><span>검색 노출 9건</span></div></div></div></div>
 <div class="pl-txt er-reveal"><div class="pl-num">04 · 블로그 체험단 · 기자단</div><h2 id="h-reviewers">여러 블로그에서 <em>동시에</em> 보이게</h2><p class="pl-one">우리 업종과 잘 맞는 블로거를 골라 실제 체험 후기를 받고, 검색 결과를 넓게 채워요.</p>
 <div class="pl-chips"><span>블로거 선별</span><span>원고·사진 가이드</span><span>광고 표시 준수</span><span>발행·노출 점검</span></div><div class="pl-meta-mini"><span>받아보시는 것<b>발행 목록과 노출 현황표</b></span><span>기간<b>모집부터 발행까지 2~3주</b></span></div>
 <details class="pl-more"><summary>자세히 보기</summary><div class="pl-detail"><p>블로그 하나로는 검색 첫 화면을 다 채우기 어려워요. 그래서 우리 업종 주제를 꾸준히 써 온 블로거를 골라 실제 체험 후기를 받아요.</p><p>원고⁠·사진 가이드를 드려 장점이 정확히 담기게 하되, 블로거의 진짜 경험이 살아 있게 해요. 대가가 있는 글은 공정위 기준대로 광고 표시를 꼭 해요.</p><h4>이런 걸 해드려요</h4><ul><li>블로거 선별 (주제⁠·활동⁠·방문자)</li><li>체험 일정 조율</li><li>원고⁠·사진 가이드 제공</li><li>광고 표시 확인</li><li>발행⁠·노출 점검</li></ul><h4>이런 사장님께 딱이에요</h4><ul><li>오픈⁠·신제품 출시 때 후기를 빨리 모으고 싶은 사장님</li></ul><h4>자주 물어보세요</h4><dl><dt>광고 표시하면 노출에 불리하지 않나요?</dt><dd>법적 의무라 꼭 지켜야 해요. 대신 진짜 경험이 잘 드러난 글로 신뢰를 얻어요.</dd></dl></div></details></div>
