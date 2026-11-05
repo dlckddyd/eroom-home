@@ -214,6 +214,19 @@ h1,h2,h3{text-wrap:balance}p,li{text-wrap:pretty}
 .lb-foot{display:flex;justify-content:space-between;align-items:center;margin-top:4px;font:600 12px/1 var(--pf);color:var(--muted)}
 .lb-foot b{color:var(--pink2)}
 /* ── 대시보드 ── */
+.p-proof{padding:96px 0 90px;background:#fff}
+.pp-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.pp-more{font:700 15px/1 var(--pf);color:var(--ink);background:#F4F4F7;padding:14px 18px;border-radius:999px;text-decoration:none;white-space:nowrap}
+.pp-more:hover{background:var(--ink);color:#fff}
+.pp-row{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:30px 20px 10px;margin:0 -20px;scrollbar-width:thin}
+.pp-card{flex:0 0 230px;scroll-snap-align:start;background:#fff;border:1px solid rgba(22,22,29,0.09);border-radius:20px;overflow:hidden;text-decoration:none;color:var(--ink);transition:transform .2s,box-shadow .2s}
+.pp-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(22,22,29,0.1)}
+.pp-card .im{aspect-ratio:4/5;background:#EEF0F3;overflow:hidden}.pp-card img{width:100%;height:100%;object-fit:contain;background:#fff;display:block}
+.pp-card .tx{padding:13px 15px 15px}.pp-card b{display:block;font:800 15.5px/1.3 var(--pf);letter-spacing:-.03em}
+.pp-card small{display:block;margin-top:5px;font:600 12.5px/1.3 var(--pf);color:rgba(22,22,29,0.55)}
+.pp-card .ok{display:inline-block;margin-top:9px;font:700 11.5px/1 var(--pf);color:#03A84E;background:#E7F8EE;padding:6px 8px;border-radius:7px}
+.pp-note{margin:14px 0 0;font:500 13px/1.6 var(--pf);color:rgba(22,22,29,0.5)}
+@media (max-width:640px){.p-proof{padding:70px 0 64px}.pp-card{flex-basis:200px}.pp-row{padding:24px 14px 10px;margin:0 -14px;scroll-padding:0 14px}}
 .p-dash{padding:110px 0;background:var(--ink);color:#fff}
 .p-dash .p-tag{background:rgba(238,93,119,0.16);color:#FF9DB0}.p-dash .p-lead{color:rgba(255,255,255,0.62)}.p-dash .p-h2 em{color:#FF8FA5}
 .ds{display:grid;grid-template-columns:1.6fr 1fr;gap:16px;margin-top:44px}
@@ -590,6 +603,14 @@ h1,h2,h3{text-wrap:balance}p,li{text-wrap:pretty}
 <div class="ds-side"><div class="ds-k"><div><small>플레이스 순위</small><div class="row"><s>38위</s>→<span class="ba-num" data-from="38위" data-to="3위">3위</span></div></div><em>▲ 35</em></div><div class="ds-k"><div><small>월 저장 수</small><div class="row"><s>120</s>→<span class="ba-num" data-from="120" data-to="1,480">1,480</span></div></div><em>12배</em></div><div class="ds-k"><div><small>전화 · 길찾기</small><div class="row"><s>94</s>→<span class="ba-num" data-from="94" data-to="386">386</span></div></div><em>4.1배</em></div><div class="ds-log"><small>이번 주 한 일</small><ul><li>대표 사진 3장 교체</li><li>신메뉴 소식 1건 발행</li><li>리뷰 답글 14건</li><li>‘강남역 젤네일’ 순위 4위 → 3위</li></ul></div></div>
 </div>
 <p class="ds-note">※ 이해를 돕기 위한 예시예요. 실제 결과는 업종·지역·경쟁 상황에 따라 달라요.</p>
+</div></section>
+
+<section class="p-proof" aria-labelledby="h-proof"><div class="p-in">
+<div class="pp-top"><div><span class="p-tag"><b>PROOF</b>실제 노출 화면</span>
+<h2 class="p-h2" id="h-proof">예시 말고,<br><em>실제 플레이스 1페이지</em></h2></div>
+<a class="pp-more" href="/cases/">사례 전체 보기 →</a></div>
+<div class="pp-row"><a class="pp-card" href="/cases/"><div class="im"><img src="/assets/img/place-case-4.webp" alt="‘김포피부관리’ 검색 시 이룸이 관리한 플레이스가 1페이지에 노출된 화면 (가게 이름은 가림)" loading="lazy" style="object-position:50% 20%"></div><div class="tx"><b>‘김포피부관리’</b><small>경기 김포 · 피부관리</small><span class="ok">플레이스 1페이지 노출</span></div></a><a class="pp-card" href="/cases/"><div class="im"><img src="/assets/img/place-case-2.webp" alt="‘강남축구교실’ 검색 시 이룸이 관리한 플레이스가 1페이지에 노출된 화면 (가게 이름은 가림)" loading="lazy" style="object-position:50% 85%"></div><div class="tx"><b>‘강남축구교실’</b><small>서울 강남 · 축구교실</small><span class="ok">플레이스 1페이지 노출</span></div></a><a class="pp-card" href="/cases/"><div class="im"><img src="/assets/img/place-case-5.webp" alt="‘노원보청기’ 검색 시 이룸이 관리한 플레이스가 1페이지에 노출된 화면 (가게 이름은 가림)" loading="lazy" style="object-position:50% 50%"></div><div class="tx"><b>‘노원보청기’</b><small>서울 노원 · 보청기</small><span class="ok">플레이스 1페이지 노출</span></div></a><a class="pp-card" href="/cases/"><div class="im"><img src="/assets/img/place-case-9.webp" alt="‘수원누수’ 검색 시 이룸이 관리한 플레이스가 1페이지에 노출된 화면 (가게 이름은 가림)" loading="lazy" style="object-position:50% 20%"></div><div class="tx"><b>‘수원누수’</b><small>경기 수원 · 누수탐지</small><span class="ok">플레이스 1페이지 노출</span></div></a><a class="pp-card" href="/cases/"><div class="im"><img src="/assets/img/place-case-10.webp" alt="‘송도필라테스’ 검색 시 이룸이 관리한 플레이스가 1페이지에 노출된 화면 (가게 이름은 가림)" loading="lazy" style="object-position:50% 55%"></div><div class="tx"><b>‘송도필라테스’</b><small>인천 송도 · 필라테스</small><span class="ok">플레이스 1페이지 노출</span></div></a><a class="pp-card" href="/cases/"><div class="im"><img src="/assets/img/place-case-7.webp" alt="‘부산실용음악학원’ 검색 시 이룸이 관리한 플레이스가 1페이지에 노출된 화면 (가게 이름은 가림)" loading="lazy" style="object-position:50% 30%"></div><div class="tx"><b>‘부산실용음악학원’</b><small>부산진구 · 음악학원</small><span class="ok">플레이스 1페이지 노출</span></div></a><a class="pp-card" href="/cases/"><div class="im"><img src="/assets/img/place-case-14.webp" alt="‘파주마사지’ 검색 시 이룸이 관리한 플레이스가 1페이지에 노출된 화면 (가게 이름은 가림)" loading="lazy" style="object-position:50% 20%"></div><div class="tx"><b>‘파주마사지’</b><small>경기 파주 · 마사지</small><span class="ok">플레이스 1페이지 노출</span></div></a><a class="pp-card" href="/cases/"><div class="im"><img src="/assets/img/place-case-6.webp" alt="‘부평 커튼’ 검색 시 이룸이 관리한 플레이스가 1페이지에 노출된 화면 (가게 이름은 가림)" loading="lazy" style="object-position:50% 58%"></div><div class="tx"><b>‘부평 커튼’</b><small>인천 부평 · 커튼</small><span class="ok">플레이스 1페이지 노출</span></div></a></div>
+<p class="pp-note">※ 고객 매장의 실제 네이버 검색 화면이에요. 가게 이름과 다른 업체는 가렸어요. 순위는 날짜·위치에 따라 바뀔 수 있어요.</p>
 </div></section>
 
 <section class="p-gauge" aria-labelledby="h-gauge"><div class="p-in">
