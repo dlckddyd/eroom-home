@@ -61,7 +61,7 @@ a.er-logo,a.er-logo:hover{color:#171719;text-decoration:none}
 .er-mnav-panel hr{border:0;border-top:1px solid rgba(112,115,124,0.12);margin:8px 4px}
 @media (max-width:980px){.er-mnav{display:block}.er-gnb-social{margin-left:auto}}
 @media (max-width:560px){.er-mnav>summary{width:34px;height:34px}.er-gnb-in{gap:8px}.er-gnb-social{margin-right:0}.er-gnb.mini .er-gnb-in{padding:0 8px 0 18px}.er-navbtn{padding:9px 13px;font-size:13px}}
-@media (max-width:360px){.er-gnb-social{display:none}}
+@media (max-width:360px){.er-gnb-social{display:none}.er-mnav{position:static}.er-mnav-panel{left:12px;right:12px;width:auto;top:66px}}
 .pl-form-msg.err{line-height:1.6}.pl-form-alt{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.pl-form-alt a{display:inline-flex;align-items:center;height:40px;padding:0 14px;border-radius:999px;font:700 13.5px/1 var(--font-body);text-decoration:none;background:#fff;color:#171719;border:1px solid rgba(112,115,124,0.2)}.pl-form-alt a.k{background:#FEE500;border-color:#FEE500;color:#3C1E1E}
 .er-footer2{margin-top:0}.er-footer2 .col a{line-height:1.35}.er-footer2-biz>div{display:flex;gap:8px}.er-footer2-biz b{flex:0 0 96px;min-width:0}
 @media (max-width:560px){.er-footer2{padding-top:52px}.er-footer2 .cols{display:grid;grid-template-columns:1fr 1fr;gap:28px 20px;width:100%}.er-footer2 .col a{white-space:nowrap}}
@@ -533,7 +533,8 @@ h1,h2,h3{text-wrap:balance}p,li{text-wrap:pretty}
     e.preventDefault();
     var msg=f.querySelector('.pl-form-msg'), btn=f.querySelector('button[type=submit]');
     var phone=f.phone.value.trim();
-    if(phone.replace(/[^0-9]/g,'').length<9){ msg.className='pl-form-msg err'; msg.textContent='전화번호를 정확히 입력해주세요.'; f.phone.focus(); return; }
+    if(phone.replace(/[^0-9]/g,'').length<9){ msg.id='consult-msg'; f.phone.setAttribute('aria-invalid','true'); f.phone.setAttribute('aria-describedby','consult-msg'); msg.className='pl-form-msg err'; msg.textContent='전화번호를 정확히 입력해주세요. 예) 010-1234-5678'; f.phone.focus(); return; }
+    f.phone.removeAttribute('aria-invalid');
     btn.disabled=true; btn.textContent='보내는 중…'; msg.className='pl-form-msg'; msg.textContent='';
     // 접수 서비스 2곳을 차례로 시도 (Web3Forms → FormSubmit). 각 8초 넘으면 다음으로.
     async function post(url, body){

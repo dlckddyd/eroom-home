@@ -1210,6 +1210,7 @@ a.er-badge:hover s{transform:translateX(3px)}
 .er-footer{border-top:1px solid rgba(112,115,124,0.08);padding:28px 20px;text-align:center;font:500 13px/1 var(--font-body);color:rgba(55,56,60,0.4)}
 .er-reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s ease,transform 0.65s ease}
 .er-reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.er-reveal{opacity:1;transform:none;transition:none}}
 .er-sec{padding:88px 20px}
 .er-sec-in{max-width:1000px;margin:0 auto}
 .er-sec h2{font:700 30px/1.34 var(--font-body);letter-spacing:-0.02em;margin:0 0 8px;text-align:center}
@@ -1510,7 +1511,7 @@ a.er-logo,a.er-logo:hover{color:#171719;text-decoration:none}
 .er-mnav-panel a.hot{margin:4px 0 6px;background:#FDF0F2;color:#C41E3F;font-weight:800}.er-mnav-panel hr{border:0;border-top:1px solid rgba(112,115,124,0.12);margin:8px 4px}
 @media (max-width:980px){.er-mnav{display:block}.er-gnb-social{margin-left:auto}}
 @media (max-width:560px){.er-mnav>summary{width:34px;height:34px}.er-gnb-in{gap:8px}.er-gnb-social{margin-right:0}.er-gnb.mini .er-gnb-in{padding:0 8px 0 18px}.er-navbtn{padding:9px 13px;font-size:13px}}
-@media (max-width:360px){.er-gnb-social{display:none}}
+@media (max-width:360px){.er-gnb-social{display:none}.er-mnav{position:static}.er-mnav-panel{left:12px;right:12px;width:auto;top:66px}}
 </style>
 </head>
 <body>

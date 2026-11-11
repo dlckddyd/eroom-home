@@ -57,7 +57,7 @@ a.er-logo,a.er-logo:hover{color:#171719;text-decoration:none}
 .er-mnav-panel hr{border:0;border-top:1px solid rgba(112,115,124,0.12);margin:8px 4px}
 @media (max-width:980px){.er-mnav{display:block}.er-gnb-social{margin-left:auto}}
 @media (max-width:560px){.er-mnav>summary{width:34px;height:34px}.er-gnb-in{gap:8px}.er-gnb-social{margin-right:0}.er-gnb.mini .er-gnb-in{padding:0 8px 0 18px}.er-navbtn{padding:9px 13px;font-size:13px}}
-@media (max-width:360px){.er-gnb-social{display:none}}
+@media (max-width:360px){.er-gnb-social{display:none}.er-mnav{position:static}.er-mnav-panel{left:12px;right:12px;width:auto;top:66px}}
 .pl-form-msg.err{line-height:1.6}.pl-form-alt{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.pl-form-alt a{display:inline-flex;align-items:center;height:40px;padding:0 14px;border-radius:999px;font:700 13.5px/1 var(--font-body);text-decoration:none;background:#fff;color:#171719;border:1px solid rgba(112,115,124,0.2)}.pl-form-alt a.k{background:#FEE500;border-color:#FEE500;color:#3C1E1E}
 .er-footer2{margin-top:0}.er-footer2 .col a{line-height:1.35}.er-footer2-biz>div{display:flex;gap:8px}.er-footer2-biz b{flex:0 0 96px;min-width:0}
 @media (max-width:560px){.er-footer2{padding-top:52px}.er-footer2 .cols{display:grid;grid-template-columns:1fr 1fr;gap:28px 20px;width:100%}.er-footer2 .col a{white-space:nowrap}}
@@ -68,6 +68,7 @@ main{font-family:var(--pf)}
 h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
 br.m{display:none}
 @media (max-width:640px){br.d{display:none}br.m{display:inline}}
+@media (max-width:359px){main br.m{display:none}}
 .w{max-width:1200px;margin:0 auto;padding:0 24px}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font:700 13px/1 var(--pf);letter-spacing:.14em;color:var(--pink2)}
 .eyebrow:before{content:"";width:18px;height:2px;background:var(--pink);border-radius:2px}
@@ -79,7 +80,7 @@ br.m{display:none}
 .ab-hero p{margin:26px auto 0;max-width:600px;font:500 19px/1.7 var(--pf);color:var(--muted)}
 .ab-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:34px}
 .ab-btn{display:inline-flex;align-items:center;gap:8px;height:54px;padding:0 26px;border-radius:999px;font:700 16px/1 var(--pf);text-decoration:none;background:var(--ink);color:#fff;transition:transform .2s}
-.ab-btn:hover{transform:translateY(-2px)}
+@media (hover:hover){.ab-btn:hover{transform:translateY(-2px)}}
 .ab-btn.line{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px #DADADF}
 .ab-visual{position:relative;margin-top:64px}
 .ab-visual .img{height:min(62vh,600px);min-height:340px;border-radius:32px;overflow:hidden}
@@ -105,12 +106,13 @@ br.m{display:none}
 .ab-marq .t{display:flex;gap:14px;width:max-content;animation:mq 38s linear infinite}
 .ab-marq span{flex:none;font:700 17px/1 var(--pf);padding:16px 24px;border-radius:999px;background:var(--soft);color:var(--ink2)}
 .ab-marq span:nth-child(3n+1){background:var(--pinkbg);color:var(--pink2)}
+.ab-marq:hover .t{animation-play-state:paused}
 @keyframes mq{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.ab-marq .t{animation:none}}
 
 /* belief */
 .ab-quote{padding:80px 0 120px}
-.ab-quote p{margin:22px 0 0;font:700 clamp(28px,3.8vw,48px)/1.38 var(--pf);letter-spacing:-.045em;color:#BDBDC4}
+.ab-quote p{margin:22px 0 0;font:700 clamp(28px,3.8vw,48px)/1.38 var(--pf);letter-spacing:-.045em;color:var(--muted)}
 .ab-quote p b{color:var(--ink);font-weight:800}
 
 /* ways */
@@ -131,15 +133,15 @@ h2.ab-h{margin:18px 0 0;font:800 clamp(32px,4vw,52px)/1.18 var(--pf);letter-spac
 .ab-svc .top .ab-sub{max-width:380px;margin:0}
 .ab-bento{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
 .ab-card{position:relative;display:flex;flex-direction:column;min-height:190px;padding:26px;border-radius:24px;background:var(--soft);color:var(--ink);text-decoration:none;transition:background .2s,transform .2s}
-.ab-card:hover{background:#EFEFEC;transform:translateY(-3px)}
+@media (hover:hover){.ab-card:hover{background:#EFEFEC;transform:translateY(-3px)}}
 .ab-card i{font:700 13px/1 var(--pf);font-style:normal;color:var(--muted)}
 .ab-card b{margin-top:auto;font:800 21px/1.3 var(--pf);letter-spacing:-.035em}
 .ab-card span{margin-top:6px;font:500 15px/1.5 var(--pf);color:var(--muted)}
-.ab-card:after{content:"↗";position:absolute;right:24px;top:22px;font:600 18px/1 var(--pf);color:var(--muted)}
+.ab-card:after{content:"→";position:absolute;right:24px;top:22px;font:600 18px/1 var(--pf);color:var(--muted)}
 .ab-card.big{grid-column:span 2;grid-row:span 2;background:var(--ink);color:#fff;padding:32px}
-.ab-card.ask{background:var(--pinkbg)}.ab-card.ask:hover{background:#FBE1E6}.ab-card.ask i,.ab-card.ask:after{color:var(--pink2)}
+.ab-card.ask{background:var(--pinkbg)}@media (hover:hover){.ab-card.ask:hover{background:#FBE1E6}}.ab-card.ask i,.ab-card.ask:after{color:var(--pink2)}
 .ab-card.big i,.ab-card.big span,.ab-card.big:after{color:rgba(255,255,255,0.6)}
-.ab-card.big:hover{background:#26262B}
+@media (hover:hover){.ab-card.big:hover{background:#26262B}}
 .ab-card.big b{font-size:clamp(26px,2.6vw,34px);line-height:1.25}
 .ab-card.big{overflow:hidden}.ab-card.big .shot{position:absolute;right:-30px;top:44px;width:58%;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,0.45);transform:rotate(4deg);opacity:.95}
 .ab-card.big .shot2{right:auto;left:30%;top:70px;width:46%;transform:rotate(-5deg);opacity:.55}
@@ -150,7 +152,7 @@ h2.ab-h{margin:18px 0 0;font:800 clamp(32px,4vw,52px)/1.18 var(--pf);letter-spac
 .ab-gal{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:300px 300px;gap:14px;margin-top:48px}
 .ab-ph{position:relative;margin:0;border-radius:24px;overflow:hidden;background:#EEE}
 .ab-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
-.ab-ph:hover img{transform:scale(1.03)}
+@media (hover:hover){.ab-ph:hover img{transform:scale(1.03)}}
 .ab-ph.a{grid-row:1/3}
 .ab-ph.d{grid-column:2/4}
 .ab-ph.d img{object-position:50% 55%}
@@ -169,9 +171,9 @@ h2.ab-h{margin:18px 0 0;font:800 clamp(32px,4vw,52px)/1.18 var(--pf);letter-spac
 .ab-box .addr{margin-top:16px;font:700 17px/1.5 var(--pf);color:var(--ink)}
 .ab-box .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .ab-box .btns a{display:inline-flex;align-items:center;height:46px;padding:0 18px;border-radius:999px;font:700 14.5px/1 var(--pf);text-decoration:none;background:var(--soft);color:var(--ink)}
-.ab-box .btns a.g{background:#03C75A;color:#fff}
+.ab-box .btns a.g{background:#0A8043;color:#fff}
 .ab-news{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px;padding:22px 26px;border-radius:20px;background:#fff;text-decoration:none;color:var(--ink);transition:box-shadow .2s}
-.ab-news:hover{box-shadow:0 10px 30px rgba(18,18,20,0.08)}
+@media (hover:hover){.ab-news:hover{box-shadow:0 10px 30px rgba(18,18,20,0.08)}}
 .ab-news small{display:block;font:700 12.5px/1 var(--pf);color:var(--pink2)}
 .ab-news b{display:block;margin-top:8px;font:700 16px/1.4 var(--pf)}
 .ab-news i{font-style:normal;font-size:20px;color:var(--muted)}
@@ -185,14 +187,14 @@ h2.ab-h{margin:18px 0 0;font:800 clamp(32px,4vw,52px)/1.18 var(--pf);letter-spac
 .ab-cta .alt{margin-top:22px;font:500 15px/1.6 var(--pf);color:rgba(255,255,255,0.55)}.ab-cta .alt a{color:#FF8FA5;font-weight:700}
 .pl-form{background:#fff;color:var(--ink);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:12px;font-family:var(--pf)}
 .pl-form label{display:flex;flex-direction:column;gap:8px;font:700 13.5px/1 var(--pf)}
-.pl-form input,.pl-form textarea{font:500 16px/1.4 var(--pf);padding:14px;border-radius:12px;border:1.5px solid #E6E8EE;background:#F7F8FA;color:var(--ink);outline:none}
+.pl-form input,.pl-form textarea{font:500 16px/1.4 var(--pf);padding:14px;border-radius:12px;border:1.5px solid #E6E8EE;background:#F7F8FA;color:var(--ink)}
 .pl-form input:focus,.pl-form textarea:focus{border-color:var(--pink);background:#fff}
 .pl-form textarea{min-height:84px;resize:vertical}
-.pl-form button{height:56px;border:0;border-radius:14px;background:var(--pink);color:#fff;font:800 16px/1 var(--pf);cursor:pointer}
+.pl-form button{height:56px;border:0;border-radius:14px;background:var(--pink2);color:#fff;font:800 16px/1 var(--pf);cursor:pointer}
 .pl-form button:disabled{opacity:.6}
 .pl-form-msg{min-height:18px;margin:0;font:500 13px/1.5 var(--pf);color:var(--muted)}
 .pl-form-msg.err{color:var(--pink2)}.pl-form-msg a{color:inherit}
-.pl-form-small{margin:0;font:500 12px/1.4 var(--pf);color:rgba(18,18,20,0.45)}
+.pl-form-small{margin:0;font:500 12px/1.4 var(--pf);color:var(--muted)}
 .er-form-done{font:700 15px/1.5 var(--pf)}
 
 @media (max-width:1020px){
@@ -288,7 +290,7 @@ h2.ab-h{margin:18px 0 0;font:800 clamp(32px,4vw,52px)/1.18 var(--pf);letter-spac
 <span class="eyebrow">ABOUT EROOM</span>
 <h1 id="h-top">손님이 찾는 곳에,<br>가게가 <em>먼저</em> 보이도록</h1>
 <p>이룸마케팅은 네이버 플레이스와 블로그부터<br class="m"> 숏폼, 당근, 유튜브, 인스타그램까지<br class="m"> 손님이 가게를 찾는 길목을 한 팀에서 챙기는<br class="m"> 마케팅 회사예요.</p>
-<div class="ab-btns"><a class="ab-btn" href="#consult">무료 상담 받기</a><a class="ab-btn line" href="/cases/">성공사례 보기 →</a></div>
+<div class="ab-btns"><a class="ab-btn" href="#consult">무료 상담 신청</a><a class="ab-btn line" href="/cases/">성공사례 보기 →</a></div>
 <div class="ab-visual">
 <div class="img"><img src="/assets/img/about-office-1.webp" alt="이룸마케팅 사무실 업무 공간"></div>
 <div class="ab-float" aria-hidden="true">
@@ -318,7 +320,7 @@ h2.ab-h{margin:18px 0 0;font:800 clamp(32px,4vw,52px)/1.18 var(--pf);letter-spac
 <div class="top"><div><span class="eyebrow">WHAT WE DO</span>
 <h2 class="ab-h" id="h-svc">필요한 채널만<br>골라서 같이 해요</h2></div>
 <p class="ab-sub">업종과 지역, 예산에 맞춰 조합해요.<br> 전부 다 하실 필요는 없어요.</p></div>
-<div class="ab-bento"><a class="ab-card big er-reveal" href="/cases/"><img class="shot shot2" src="/assets/img/case-13.webp" alt="" loading="lazy"><img class="shot" src="/assets/img/place-case-4.webp" alt="" loading="lazy"><i>성공사례</i><b>말 대신 검색 화면으로<br>보여드릴게요</b><span>플레이스 1페이지, 블로그 첫 화면 실제 캡처</span></a><a class="ab-card er-reveal" href="/place/"><i>01</i><b>플레이스 마케팅</b><span>지도 검색 상위노출</span></a><a class="ab-card er-reveal" href="/blog/"><i>02</i><b>블로그 마케팅</b><span>검색 첫 화면에 후기</span></a><a class="ab-card er-reveal" href="/clip/"><i>03</i><b>네이버클립 · 숏폼</b><span>15초 영상으로 더 멀리</span></a><a class="ab-card er-reveal" href="/review/"><i>04</i><b>체험단 마케팅</b><span>먼저 써본 진짜 후기</span></a><a class="ab-card er-reveal" href="/daangn/"><i>05</i><b>당근 마케팅</b><span>우리 동네 단골 만들기</span></a><a class="ab-card er-reveal" href="/youtube/"><i>06</i><b>유튜브 마케팅</b><span>끝까지 보게 되는 영상</span></a><a class="ab-card er-reveal" href="/instagram/"><i>07</i><b>인스타그램 마케팅</b><span>저장하고 찾아오는 피드</span></a><a class="ab-card ask er-reveal" href="#consult"><i>잘 모르겠다면</i><b>무료로 진단받기</b><span>우리 가게 맞춤으로</span></a></div>
+<div class="ab-bento"><a class="ab-card big er-reveal" href="/cases/"><img class="shot shot2" src="/assets/img/case-13.webp" alt="" loading="lazy"><img class="shot" src="/assets/img/place-case-4.webp" alt="" loading="lazy"><i>성공사례</i><b>말 대신 검색 화면으로<br>보여드릴게요</b><span>플레이스 1페이지, 블로그 첫 화면 실제 캡처</span></a><a class="ab-card er-reveal" href="/place/"><i>01</i><b>플레이스 마케팅</b><span>지도 검색 상위노출</span></a><a class="ab-card er-reveal" href="/blog/"><i>02</i><b>블로그 마케팅</b><span>검색 첫 화면에 후기</span></a><a class="ab-card er-reveal" href="/clip/"><i>03</i><b>네이버클립 · 숏폼</b><span>15초 영상으로 더 멀리</span></a><a class="ab-card er-reveal" href="/review/"><i>04</i><b>체험단 마케팅</b><span>먼저 써본 진짜 후기</span></a><a class="ab-card er-reveal" href="/daangn/"><i>05</i><b>당근 마케팅</b><span>우리 동네 단골 만들기</span></a><a class="ab-card er-reveal" href="/youtube/"><i>06</i><b>유튜브 마케팅</b><span>끝까지 보게 되는 영상</span></a><a class="ab-card er-reveal" href="/instagram/"><i>07</i><b>인스타그램 마케팅</b><span>저장하고 찾아오는 피드</span></a><a class="ab-card ask er-reveal" href="#consult"><i>잘 모르겠다면</i><b>무료 상담 신청</b><span>우리 가게 맞춤으로</span></a></div>
 </div></section>
 
 <section class="ab-office" aria-labelledby="h-office"><div class="w">
@@ -348,7 +350,7 @@ h2.ab-h{margin:18px 0 0;font:800 clamp(32px,4vw,52px)/1.18 var(--pf);letter-spac
 <p class="addr">서울특별시 강서구 양천로 547, 1015호 (가양동, 마스터밸류)</p>
 <p>방문 상담은 미리 전화나 카카오톡으로<br> 시간을 맞춰주시면 기다리고 있을게요.</p>
 <div class="btns"><a class="g" href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EA%B0%95%EC%84%9C%EA%B5%AC%20%EC%96%91%EC%B2%9C%EB%A1%9C%20547" target="_blank" rel="noopener noreferrer">네이버 지도</a><a href="tel:0269589144">전화하기</a><a href="https://pf.kakao.com/_JdYWX" target="_blank" rel="noopener noreferrer">카카오톡</a></div></div>
-<a class="ab-news er-reveal" href="https://m.idsn.co.kr/news/view/1065602129224578" target="_blank" rel="noopener noreferrer"><div><small>언론 보도</small><b>이룸마케팅 관련 기사 보기</b></div><i>↗</i></a>
+<a class="ab-news er-reveal" href="https://m.idsn.co.kr/news/view/1065602129224578" target="_blank" rel="noopener noreferrer"><div><small>언론 보도</small><b>플레이스 마케팅 보도 기사 보기</b></div><i>↗</i></a>
 </div>
 </div>
 </div></section>
@@ -391,7 +393,8 @@ h2.ab-h{margin:18px 0 0;font:800 clamp(32px,4vw,52px)/1.18 var(--pf);letter-spac
     e.preventDefault();
     var msg=f.querySelector('.pl-form-msg'), btn=f.querySelector('button[type=submit]');
     var phone=f.phone.value.trim();
-    if(phone.replace(/[^0-9]/g,'').length<9){ msg.className='pl-form-msg err'; msg.textContent='전화번호를 정확히 입력해주세요.'; f.phone.focus(); return; }
+    if(phone.replace(/[^0-9]/g,'').length<9){ msg.id='consult-msg'; f.phone.setAttribute('aria-invalid','true'); f.phone.setAttribute('aria-describedby','consult-msg'); msg.className='pl-form-msg err'; msg.textContent='전화번호를 정확히 입력해주세요. 예) 010-1234-5678'; f.phone.focus(); return; }
+    f.phone.removeAttribute('aria-invalid');
     btn.disabled=true; btn.textContent='보내는 중…'; msg.className='pl-form-msg'; msg.textContent='';
     // 접수 서비스 2곳을 차례로 시도 (Web3Forms → FormSubmit). 각 8초 넘으면 다음으로.
     async function post(url, body){
